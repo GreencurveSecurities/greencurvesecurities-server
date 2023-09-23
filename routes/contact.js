@@ -22,13 +22,13 @@ router.post("/contactus", async (req, res) => {
   
   message1 = {
     from: "greencurve.securities@gmail.com",
-    to: "savlavinay022@gmail.com",
+    to: "greencurve.securities@gmail.com",
     subject: `GCS contact us request from ${bodyData.Name}`,
     html: `<p>You got a new message from:<p><br><p>Name : ${bodyData.Name}</p><br><p>Phone Number : ${bodyData.PhoneNumber}</p><br><p>Email : ${bodyData.Email}</p><br><p>Subject : ${bodyData.Subject}</p><br><p>Message : ${bodyData.Message}</p><br><p>Best wishes, GCS</p>`
   }
   message2 = {
     from: "greencurve.securities@gmail.com",
-    to: "savlavinay022@gmail.com",
+    to: "greencurve.securities@gmail.com",
     subject: `GCS Website Lead form Reply from ${bodyData.Name}}`,
     html: `<p>You got a new message from ${bodyData.Name}:</p><br><p>Name : ${bodyData.Name}</p><br><p>Phone Number : ${bodyData.PhoneNumber}</p><br><p>Email : ${bodyData.Email}</p><br><p>PreferredMethodOfContact : ${bodyData.PreferredMethodOfContact}</p><br><p>InterestedServices : ${bodyData.InterestedServices}</p><br><p>InvestmentExperience : ${bodyData.InvestmentExperience}</p><br><p>City : ${bodyData.City}</p><br><p>Best wishes, GCS</p>`
   }
