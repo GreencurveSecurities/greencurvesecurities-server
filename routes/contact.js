@@ -8,11 +8,11 @@ const e = require("express");
 
 //For SMTP Mail Sending
 let transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST || dotenv.config().parsed.SMTP_HOST,
-  port: process.env.SMTP_PORT || dotenv.config().parsed.SMTP_PORT,
+  host: dotenv.config().parsed.SMTP_HOST,
+  port: dotenv.config().parsed.SMTP_PORT,
   auth: {
-      user: process.env.SMTP_USER || dotenv.config().parsed.SMTP_USER,
-      pass: process.env.SMTP_PASS || dotenv.config().parsed.SMTP_PASS
+      user: dotenv.config().parsed.SMTP_USER,
+      pass: dotenv.config().parsed.SMTP_PASS
   }
 })
 
