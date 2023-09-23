@@ -1,16 +1,16 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const session = require("express-session");
-const store = new session.MemoryStore();
+// const session = require("express-session");
+// const store = new session.MemoryStore();
 const PORT = 3001;
 
-app.use(session({
-  secret:"some secret",
-  cookie: {maxAge: 60000},
-  saveUninitialized: false,
-  store
-}))
+// app.use(session({
+//   secret:"some secret",
+//   cookie: {maxAge: 60000},
+//   saveUninitialized: false,
+//   store
+// }))
 
 app.use(express.json());
 app.use(cors({
