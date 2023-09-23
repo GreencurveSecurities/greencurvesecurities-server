@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       },
       PhoneNumber: {
-        type: DataTypes.DECIMAL,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       PreferredMethodOfContact:{
