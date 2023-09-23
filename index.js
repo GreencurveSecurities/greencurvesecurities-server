@@ -5,6 +5,15 @@ const cors = require("cors");
 // const store = new session.MemoryStore();
 const PORT = 3001;
 
+const https = require('https');
+
+const options = {
+  key: fs.readFileSync('./ec2.key'),
+  cert: fs.readFileSync('./ec2.crt')
+};
+
+https.createServer(options, app).listen(PORT);
+
 // app.use(session({
 //   secret:"some secret",
 //   cookie: {maxAge: 60000},
