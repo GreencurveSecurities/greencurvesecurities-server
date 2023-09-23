@@ -13,7 +13,7 @@ const options = {
   cert: fs.readFileSync('./ec2.crt')
 };
 
-https.createServer(options, app).listen(PORT);
+// https.createServer(options, app).listen(PORT);
 
 // app.use(session({
 //   secret:"some secret",
@@ -38,9 +38,10 @@ app.use("/contact", Contact);
 
 
 db.sequelize.sync().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server running at port ${PORT}`);
-  });
+  https.createServer(options, app).listen(PORT);
+  // app.listen(PORT, () => {
+  //   console.log(`Server running at port ${PORT}`);
+  // });
 });
 
 // Run All Crons
