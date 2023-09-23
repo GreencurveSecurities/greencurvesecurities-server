@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const fs = require('fs');
 // const session = require("express-session");
 // const store = new session.MemoryStore();
 const PORT = 3001;
