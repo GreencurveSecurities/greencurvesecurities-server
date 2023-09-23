@@ -1,0 +1,27 @@
+{
+  "development": {
+    "username": "admin",
+    "password": "Greencurve$ecurities1802",
+    "database": "contact",
+    "host": "admin.cy82xdw4ieby.ap-south-1.rds.amazonaws.com",
+    "dialect": "mysql",
+    "logging": false,
+    "timezone": "+05:30"
+  },
+  "test": {
+    "username": "admin",
+    "password": "Greencurve$ecurities1802",
+    "database": "contact",
+    "host": "admin.cy82xdw4ieby.ap-south-1.rds.amazonaws.com",
+    "dialect": "mysql",
+    "timezone": "+05:30"
+  },
+  "production": {
+    "username": "admin",
+    "password": "Greencurve$ecurities1802",
+    "database": "contact",
+    "host": "admin.cy82xdw4ieby.ap-south-1.rds.amazonaws.com",
+    "dialect": "mysql",
+    "timezone": "+05:30"
+  }
+}
