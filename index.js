@@ -6,12 +6,12 @@ const fs = require('fs');
 // const store = new session.MemoryStore();
 const PORT = 3001;
 
-const https = require('https');
+// const https = require('https');
 
-const options = {
-  key: fs.readFileSync('./ec2.key'),
-  cert: fs.readFileSync('./ec2.crt')
-};
+// const options = {
+//   key: fs.readFileSync('./ec2.key'),
+//   cert: fs.readFileSync('./ec2.crt')
+// };
 
 // https.createServer(options, app).listen(PORT);
 
@@ -38,10 +38,10 @@ app.use("/contact", Contact);
 
 
 db.sequelize.sync().then(() => {
-  https.createServer(options, app).listen(PORT);
-  // app.listen(PORT, () => {
-  //   console.log(`Server running at port ${PORT}`);
-  // });
+  // https.createServer(options, app).listen(PORT);
+  app.listen(PORT, () => {
+    console.log(`Server running at port ${PORT}`);
+  });
 });
 
 // Run All Crons
