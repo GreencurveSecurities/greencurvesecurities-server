@@ -5,7 +5,7 @@
     "database": "contact",
     "host": "admin.cy82xdw4ieby.ap-south-1.rds.amazonaws.com",
     "dialect": "mysql",
-    "dialectModule": "mysql2",
+
     "logging": false,
     "timezone": "+05:30"
   },
