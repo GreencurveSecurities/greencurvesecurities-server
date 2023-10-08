@@ -19,11 +19,14 @@
     "express": "^4.17.1",
     "fs": "^0.0.1-security",
     "https": "^1.0.0",
-    "mysql2": "^2.3.0",
+    "mysql2": "^2.3.3",
     "nodemailer": "^6.9.5",
-    "sequelize": "^6.6.5"
+    "sequelize": "^6.6.5",
+    "util": "^0.12.5",
+    "webpack": "^5.88.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "webpack-cli": "^5.1.4"
   }
 }
