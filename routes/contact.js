@@ -104,6 +104,4 @@ router.put("/contacted/:id", async (req, res) => {
   res.json(contactData);
 });
 
-
-
 module.exports = router;
