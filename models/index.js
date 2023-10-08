@@ -15,6 +15,11 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
+import mysql2 from 'mysql2';
+if (options.dialect === 'mysql') {
+  options.dialectModule = mysql2;
+}
+new Sequelize(options)
 fs
   .readdirSync(__dirname)
   .filter(file => {
