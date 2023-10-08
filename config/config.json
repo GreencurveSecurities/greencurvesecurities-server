@@ -5,7 +5,6 @@
     "database": "contact",
     "host": "admin.cy82xdw4ieby.ap-south-1.rds.amazonaws.com",
     "dialect": "mysql",
-
     "logging": false,
     "timezone": "+05:30"
   },
@@ -15,7 +14,6 @@
     "database": "contact",
     "host": "admin.cy82xdw4ieby.ap-south-1.rds.amazonaws.com",
     "dialect": "mysql",
-    "dialectModule": "mysql2",
     "timezone": "+05:30"
   },
   "production": {
@@ -24,7 +22,6 @@
     "database": "contact",
     "host": "admin.cy82xdw4ieby.ap-south-1.rds.amazonaws.com",
     "dialect": "mysql",
-    "dialectModule": "mysql2",
     "timezone": "+05:30"
   }
 }
