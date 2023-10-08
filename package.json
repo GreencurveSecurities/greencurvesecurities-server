@@ -22,8 +22,7 @@
     "mysql2": "^2.3.3",
     "nodemailer": "^6.9.5",
     "sequelize": "^6.6.5",
-    "util": "^0.12.5",
-    "webpack": "^5.88.2"
+    "util": "^0.12.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.12",
