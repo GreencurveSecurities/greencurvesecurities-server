@@ -52,6 +52,11 @@ router.post("/contactus", async (req, res) => {
   }
 
   const createResponse = await ContactForm.create(bodyData);
+  res.header({
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
+  })
   res.json(createResponse);
 });
 
@@ -59,6 +64,11 @@ router.post("/contactus", async (req, res) => {
 router.post("/getintouch", async (req, res) => {
   const bodyData = req.body;
   const createResponse = await ContactForm.create(bodyData);
+  res.header({
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
+  })
   res.json(createResponse);
 });
 
@@ -78,6 +88,11 @@ router.get("/contact/:id", async (req, res) => {
     //   },
     // ],
   });
+  res.header({
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
+  })
   res.json(contactData);
 });
 
@@ -87,6 +102,11 @@ router.get("/contact", async (req, res) => {
     //order condition
     order: [["TimeStamp", "DESC"]],
   });
+  res.header({
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
+  })
   res.json(contactData);
 });
 
@@ -101,6 +121,11 @@ router.put("/contacted/:id", async (req, res) => {
       },
     }
   );
+  res.header({
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
+  })
   res.json(contactData);
 });
 
