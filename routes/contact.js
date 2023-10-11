@@ -90,9 +90,10 @@ router.post("/signup", async (req, res) => {
 // Verify User on database
 router.post("/signin", async (req, res) => {
   const bodyData = req.body;
-  const createResponse = await Users.find({
+  const createResponse = await Users.findOne({
     where: {
       Email: bodyData.Email,
+      Password: bodyData.Password,
     },
   });
   res.header({
