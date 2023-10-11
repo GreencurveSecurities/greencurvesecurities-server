@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const { Op } = require("sequelize");
-const { ContactForm, Users } = require("../models");
+const { ContactForm } = require("../models");
+const { Users } = require("../models");
 const nodemailer = require("nodemailer");
 const dotenv = require("dotenv");
 const e = require("express");
