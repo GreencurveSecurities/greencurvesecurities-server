@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { Op } = require("sequelize");
-const { ContactForm } = require("../models");
+const { ContactForm, Users } = require("../models");
 const nodemailer = require("nodemailer");
 const dotenv = require("dotenv");
 const e = require("express");
@@ -64,6 +64,36 @@ router.post("/contactus", async (req, res) => {
 router.post("/getintouch", async (req, res) => {
   const bodyData = req.body;
   const createResponse = await ContactForm.create(bodyData);
+  res.header({
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+    "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
+  });
+  res.json(createResponse);
+});
+
+// Creates a new User on database
+router.post("/signup", async (req, res) => {
+  const bodyData = req.body;
+  const createResponse = await Users.create(bodyData);
+  res.header({
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+    "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
+  });
+  res.json(createResponse);
+});
+
+// Verify User on database
+router.post("/signin", async (req, res) => {
+  const bodyData = req.body;
+  const createResponse = await Users.find({
+    where: {
+      Email: bodyData.Email,
+    },
+  });
   res.header({
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
