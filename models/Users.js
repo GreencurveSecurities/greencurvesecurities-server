@@ -21,6 +21,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
+      Role:{
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       isVerified: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
