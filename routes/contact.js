@@ -129,6 +129,33 @@ router.get("/contact/:id", async (req, res) => {
   });
   res.json(contactData);
 });
+// Delete the Contact by id
+router.delete("/deleteContact/:id", async (req, res) => {
+  const Id = req.params.id;
+  // console.log(contactID);
+  const contactData = await ContactForm.destroy({
+    where: {
+      Id: Id
+    },
+    // include: [
+    //   {
+    //     model: User,
+    //     as: "user",
+    //   },
+    //   {
+    //     model: Status,
+    //     as: "status",
+    //   },
+    // ],
+  });
+  res.header({
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+    "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
+  });
+  res.json(contactData);
+});
 
 // Gets all the Contacts
 router.get("/contact", async (req, res) => {
