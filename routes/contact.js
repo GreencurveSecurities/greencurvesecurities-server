@@ -160,8 +160,9 @@ router.delete("/deleteContact/:id", async (req, res) => {
 
 // Gets Google Reviews
 router.get("/reviews", async (req, res) => {
+  const apiKey = process.env.API_KEY;
   const Reviews = await axios.get(
-    'https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJizxli4-p5zsRYUVs6CKc2bU&fields=name,rating,reviews&key=AIzaSyAKBC1vaefUJUbhQsxlqKLngbw0ymFyDO4'
+    `https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJizxli4-p5zsRYUVs6CKc2bU&fields=name,rating,reviews&key=${apiKey}`
   )
   res.header({
     "Content-Type": "application/json",
