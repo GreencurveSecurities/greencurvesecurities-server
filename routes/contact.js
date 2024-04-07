@@ -6,6 +6,7 @@ const { Users } = require("../models");
 const nodemailer = require("nodemailer");
 const dotenv = require("dotenv");
 const e = require("express");
+const axios = require('axios');
 
 //For SMTP Mail Sending
 let transporter = nodemailer.createTransport({
@@ -155,6 +156,20 @@ router.delete("/deleteContact/:id", async (req, res) => {
     "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
   });
   res.json(contactData);
+});
+
+// Gets Google Reviews
+router.get("/reviews", async (req, res) => {
+  const Reviews = await axios.get(
+    'https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJizxli4-p5zsRYUVs6CKc2bU&fields=name,rating,reviews&key=AIzaSyAKBC1vaefUJUbhQsxlqKLngbw0ymFyDO4'
+  )
+  res.header({
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+    "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
+  });
+  res.json(Reviews.data);
 });
 
 // Gets all the Contacts
