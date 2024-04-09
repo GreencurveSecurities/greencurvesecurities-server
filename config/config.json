@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "admin",
-    "password": "Greencurve$ecurities1802",
+    "password": "Greencurve1802",
     "database": "contact",
     "host": "64.227.138.245",
     "dialect": "mysql",
@@ -10,7 +10,7 @@
   },
   "test": {
     "username": "admin",
-    "password": "Greencurve$ecurities1802",
+    "password": "Greencurve1802",
     "database": "contact",
     "host": "64.227.138.245",
     "dialect": "mysql",
@@ -18,7 +18,7 @@
   },
   "production": {
     "username": "admin",
-    "password": "Greencurve$ecurities1802",
+    "password": "Greencurve1802",
     "database": "contact",
     "host": "64.227.138.245",
     "dialect": "mysql",
