@@ -168,22 +168,32 @@ router.get("/reviews", async (req, res) => {
 
   const reviews = reviewsResponse.data.result.reviews;
 
-  const postData = reviews.map(review => ({
-    author_name: review.author_name,
-    profile_photo_url: review.profile_photo_url,
-    rating: review.rating,
-    text: review.text,
-  }));
+  const existingReviewsResponse = await axios.get("https://admin.greencurvesecurities.com/items/GoogleReviews");
+  const existingReviews = existingReviewsResponse.data.data;
 
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
+  const newReviews = reviews.filter(review => {
+    const existingReview = existingReviews.find(er => er.author_name === review.author_name);
+    return !existingReview;
+  });
+
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  for (const review of newReviews) {
+    const postData = {
+      author_name: review.author_name,
+      profile_photo_url: review.profile_photo_url,
+      rating: review.rating,
+      text: review.text,
     };
 
     await axios.post("https://admin.greencurvesecurities.com/items/GoogleReviews", postData, config);
+  }
 
-    res.status(201).send(`Data posted successfully to Admin POrtal`);
+  res.status(201).send(`New reviews posted successfully to Admin Portal`);
   // res.header({
   //   "Content-Type": "application/json",
   //   "Access-Control-Allow-Origin": "*",
