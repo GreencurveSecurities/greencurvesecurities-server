@@ -5,6 +5,7 @@ const { ContactForm } = require("../models");
 const { Users } = require("../models");
 const nodemailer = require("nodemailer");
 const dotenv = require("dotenv");
+dotenv.config();
 const e = require("express");
 const axios = require('axios');
 
@@ -161,16 +162,35 @@ router.delete("/deleteContact/:id", async (req, res) => {
 // Gets Google Reviews
 router.get("/reviews", async (req, res) => {
   const apiKey = process.env.API_KEY;
-  const Reviews = await axios.get(
+  const reviewsResponse = await axios.get(
     `https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJizxli4-p5zsRYUVs6CKc2bU&fields=name,rating,reviews&key=${apiKey}`
   )
-  res.header({
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
-    "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
-  });
-  res.json(Reviews.data);
+
+  const reviews = reviewsResponse.data.result.reviews;
+
+  const postData = reviews.map(review => ({
+    author_name: review.author_name,
+    profile_photo_url: review.profile_photo_url,
+    rating: review.rating,
+    text: review.text,
+  }));
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    await axios.post("https://admin.greencurvesecurities.com/items/GoogleReviews", postData, config);
+
+    res.status(201).send(`Data posted successfully to Admin POrtal`);
+  // res.header({
+  //   "Content-Type": "application/json",
+  //   "Access-Control-Allow-Origin": "*",
+  //   "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+  //   "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
+  // });
+  // res.json(Reviews.data);
 });
 
 // Gets all the Contacts
