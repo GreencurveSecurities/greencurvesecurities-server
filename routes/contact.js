@@ -121,7 +121,7 @@ router.post("/pms", async (req, res) => {
               </tr>
               <tr>
                 <td style="padding: 12px; border-bottom: 1px solid #dcfce7; font-weight: bold; color: #166534;">Preferred Contact Time:</td>
-                <td style="padding: 12px; border-bottom: 1px solid #dcfce7; color: #14532d;">${bodyData.preferredTime}</td>
+                <td style="padding: 12px; border-bottom: 1px solid #dcfce7; color: #14532d;">${bodyData.preferredContactTime}</td>
               </tr>
               <tr>
                 <td style="padding: 12px; font-weight: bold; color: #166534; vertical-align: top;">Investment Goals:</td>
