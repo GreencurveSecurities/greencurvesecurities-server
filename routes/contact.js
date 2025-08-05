@@ -69,7 +69,7 @@ router.post("/pms", async (req, res) => {
 
   const pmsMessage = {
     from: "greencurve.securities@gmail.com",
-    to: ["greencurve.securities@gmail.com", "sushantsinghnse@gmail.com", "nehaoffice30199@gmail.com"],
+    to: "greencurve.securities@gmail.com",
     subject: `GCS PMS Request from ${bodyData.name}`,
     html: `
       <!DOCTYPE html>
